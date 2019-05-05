@@ -1,88 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Navbar NavBar snapshot with user 1`] = `
-<AppBar
-  className="appbar"
-  data-testid="navbar"
-  position="static"
->
-  <Toolbar>
-    <Link
-      className="link flex1"
-      data-testid="titleLink"
-      to="/"
-    >
-      <Typography
-        color="inherit"
-        variant="h6"
+Array [
+  <AppBar
+    className="appbar"
+    data-testid="navbar"
+    position="static"
+  >
+    <Toolbar>
+      <Link
+        className="link flex1"
+        data-testid="titleLink"
+        to="/"
       >
-        appName
-      </Typography>
-    </Link>
-    <Hidden
-      only="xs"
-    >
-      <Button
-        color="inherit"
-        data-testid="addAccountButton"
-      >
-        addAccount
-      </Button>
-      <Button
-        color="inherit"
-        data-testid="loginButton"
-        onClick={[Function]}
-      >
-        <Avatar
-          className="avatar"
-        >
-          <Typography
-            color="inherit"
-          >
-            n
-          </Typography>
-        </Avatar>
         <Typography
           color="inherit"
+          variant="h6"
         >
-          logout
+          appName
         </Typography>
-      </Button>
-    </Hidden>
-    <Hidden
-      only={
-        Array [
-          "xl",
-          "lg",
-          "md",
-          "sm",
-        ]
-      }
-    >
-      <IconButton
-        aria-haspopup="true"
-        aria-label="Menu"
-        aria-owns={null}
-        color="inherit"
-        data-testid="navbarDropMenuButton"
-        onClick={[Function]}
+      </Link>
+      <Hidden
+        only="xs"
       >
-        <MenuIcon />
-      </IconButton>
-      <Menu
-        anchorEl={null}
-        data-testid="dropDownMenu"
-        id="simple-menu"
-        onClose={[Function]}
-        open={false}
-      >
-        <MenuItem
-          date-testId="addAccountMenu"
+        <Button
+          color="inherit"
+          data-testid="addAccountButton"
+          onClick={[Function]}
         >
           addAccount
-        </MenuItem>
-        <MenuItem
-          data-testid="loginMenu"
+        </Button>
+        <Button
+          color="inherit"
+          data-testid="loginButton"
           onClick={[Function]}
         >
           <Avatar
@@ -95,82 +45,146 @@ exports[`Navbar NavBar snapshot with user 1`] = `
             </Typography>
           </Avatar>
           <Typography
-            color="textPrimary"
+            color="inherit"
           >
             logout
           </Typography>
-        </MenuItem>
-      </Menu>
-    </Hidden>
-  </Toolbar>
-</AppBar>
+        </Button>
+      </Hidden>
+      <Hidden
+        only={
+          Array [
+            "xl",
+            "lg",
+            "md",
+            "sm",
+          ]
+        }
+      >
+        <IconButton
+          aria-haspopup="true"
+          aria-label="Menu"
+          aria-owns={null}
+          color="inherit"
+          data-testid="navbarDropMenuButton"
+          onClick={[Function]}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Menu
+          anchorEl={null}
+          data-testid="dropDownMenu"
+          id="simple-menu"
+          onClose={[Function]}
+          open={false}
+        >
+          <MenuItem
+            date-testId="addAccountMenu"
+            onClick={[Function]}
+          >
+            addAccount
+          </MenuItem>
+          <MenuItem
+            data-testid="loginMenu"
+            onClick={[Function]}
+          >
+            <Avatar
+              className="avatar"
+            >
+              <Typography
+                color="inherit"
+              >
+                n
+              </Typography>
+            </Avatar>
+            <Typography
+              color="textPrimary"
+            >
+              logout
+            </Typography>
+          </MenuItem>
+        </Menu>
+      </Hidden>
+    </Toolbar>
+  </AppBar>,
+  <AddAccountDialog
+    handleClose={[Function]}
+    open={false}
+  />,
+]
 `;
 
 exports[`Navbar NavBar snapshot without user 1`] = `
-<AppBar
-  className="appbar"
-  data-testid="navbar"
-  position="static"
->
-  <Toolbar>
-    <Link
-      className="link flex1"
-      data-testid="titleLink"
-      to="/"
-    >
-      <Typography
-        color="inherit"
-        variant="h6"
+Array [
+  <AppBar
+    className="appbar"
+    data-testid="navbar"
+    position="static"
+  >
+    <Toolbar>
+      <Link
+        className="link flex1"
+        data-testid="titleLink"
+        to="/"
       >
-        appName
-      </Typography>
-    </Link>
-    <Hidden
-      only="xs"
-    >
-      <Button
-        color="inherit"
-        data-testid="loginButton"
-        onClick={[Function]}
+        <Typography
+          color="inherit"
+          variant="h6"
+        >
+          appName
+        </Typography>
+      </Link>
+      <Hidden
+        only="xs"
       >
-        login
-      </Button>
-    </Hidden>
-    <Hidden
-      only={
-        Array [
-          "xl",
-          "lg",
-          "md",
-          "sm",
-        ]
-      }
-    >
-      <IconButton
-        aria-haspopup="true"
-        aria-label="Menu"
-        aria-owns={null}
-        color="inherit"
-        data-testid="navbarDropMenuButton"
-        onClick={[Function]}
-      >
-        <MenuIcon />
-      </IconButton>
-      <Menu
-        anchorEl={null}
-        data-testid="dropDownMenu"
-        id="simple-menu"
-        onClose={[Function]}
-        open={false}
-      >
-        <MenuItem
-          data-testid="loginMenu"
+        <Button
+          color="inherit"
+          data-testid="loginButton"
           onClick={[Function]}
         >
           login
-        </MenuItem>
-      </Menu>
-    </Hidden>
-  </Toolbar>
-</AppBar>
+        </Button>
+      </Hidden>
+      <Hidden
+        only={
+          Array [
+            "xl",
+            "lg",
+            "md",
+            "sm",
+          ]
+        }
+      >
+        <IconButton
+          aria-haspopup="true"
+          aria-label="Menu"
+          aria-owns={null}
+          color="inherit"
+          data-testid="navbarDropMenuButton"
+          onClick={[Function]}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Menu
+          anchorEl={null}
+          data-testid="dropDownMenu"
+          id="simple-menu"
+          onClose={[Function]}
+          open={false}
+        >
+          <MenuItem
+            data-testid="loginMenu"
+            onClick={[Function]}
+          >
+            login
+          </MenuItem>
+        </Menu>
+      </Hidden>
+    </Toolbar>
+  </AppBar>,
+  <AddAccountDialog
+    handleClose={[Function]}
+    open={false}
+  />,
+]
 `;

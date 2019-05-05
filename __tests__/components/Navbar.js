@@ -22,6 +22,7 @@ jest.mock('aws-amplify', () => ({
     currentAuthenticatedUser: jest.fn().mockReturnValue(Promise.resolve({ id: 'userId' })),
   },
 }));
+jest.mock('../../app/components/AddAccountDialog', () => 'AddAccountDialog');
 
 describe('Navbar', () => {
   const defaultProps = {

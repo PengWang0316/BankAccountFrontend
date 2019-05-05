@@ -11,6 +11,7 @@ import orange from '@material-ui/core/colors/orange';
 // import { Auth } from 'aws-amplify';
 import I18n from '@kevinwang0316/i18n';
 
+import AddAccountDialog from './AddAccountDialog';
 import {
   HOME_PAGE_URL, SIGNIN_PAGE_URL,
 } from '../config';
@@ -54,7 +55,7 @@ export class Navbar extends Component {
 
   static defaultProps = { user: null };
 
-  state = { anchorEl: null };
+  state = { anchorEl: null, isOpenAddAccountDialog: false };
 
   /**
    * Get the authentication user information.
@@ -85,60 +86,68 @@ export class Navbar extends Component {
   }
 
   /**
+   * Showing an add account dialog
+   */
+  handleAddAccountClick = () => this.setState(({ isOpenAddAccountDialog }) => ({ isOpenAddAccountDialog: !isOpenAddAccountDialog }));
+
+  /**
    * The render method to render the jsx.
    * @return {jsx} Return jsx.
    */
   render() {
     const { classes, user } = this.props;
-    const { anchorEl } = this.state;
+    const { anchorEl, isOpenAddAccountDialog } = this.state;
     return (
-      <AppBar position="static" className={classes.appbar} data-testid="navbar">
-        <Toolbar>
-          <Link to={HOME_PAGE_URL} className={`${classes.link} ${classes.flex1}`} data-testid="titleLink">
-            <Typography variant="h6" color="inherit">{I18n.get('appName')}</Typography>
-          </Link>
-          <Hidden only="xs">
-            {user && <Button color="inherit" data-testid="addAccountButton">{I18n.get('addAccount')}</Button>}
-            <Button color="inherit" onClick={this.handleLoginButtonClick} data-testid="loginButton">
-              {user ? (
-                <Fragment>
-                  <Avatar className={classes.avatar}><Typography color="inherit">{user.nickname.charAt(0)}</Typography></Avatar>
-                  <Typography color="inherit">{I18n.get('logout')}</Typography>
-                </Fragment>
-              ) : I18n.get('login')}
-            </Button>
-          </Hidden>
-          <Hidden only={['xl', 'lg', 'md', 'sm']}>
-            <IconButton
-              color="inherit"
-              aria-label="Menu"
-              onClick={this.handleMenuIconClick}
-              aria-owns={anchorEl ? 'simple-menu' : null}
-              aria-haspopup="true"
-              data-testid="navbarDropMenuButton"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={this.handleMenuIconClick}
-              data-testid="dropDownMenu"
-            >
-              {user && <MenuItem date-testId="addAccountMenu">{I18n.get('addAccount')}</MenuItem>}
-              <MenuItem onClick={this.handleLoginButtonClick} data-testid="loginMenu">
+      <Fragment>
+        <AppBar position="static" className={classes.appbar} data-testid="navbar">
+          <Toolbar>
+            <Link to={HOME_PAGE_URL} className={`${classes.link} ${classes.flex1}`} data-testid="titleLink">
+              <Typography variant="h6" color="inherit">{I18n.get('appName')}</Typography>
+            </Link>
+            <Hidden only="xs">
+              {user && <Button color="inherit" data-testid="addAccountButton" onClick={this.handleAddAccountClick}>{I18n.get('addAccount')}</Button>}
+              <Button color="inherit" onClick={this.handleLoginButtonClick} data-testid="loginButton">
                 {user ? (
                   <Fragment>
                     <Avatar className={classes.avatar}><Typography color="inherit">{user.nickname.charAt(0)}</Typography></Avatar>
-                    <Typography color="textPrimary">{I18n.get('logout')}</Typography>
+                    <Typography color="inherit">{I18n.get('logout')}</Typography>
                   </Fragment>
                 ) : I18n.get('login')}
-              </MenuItem>
-            </Menu>
-          </Hidden>
-        </Toolbar>
-      </AppBar>
+              </Button>
+            </Hidden>
+            <Hidden only={['xl', 'lg', 'md', 'sm']}>
+              <IconButton
+                color="inherit"
+                aria-label="Menu"
+                onClick={this.handleMenuIconClick}
+                aria-owns={anchorEl ? 'simple-menu' : null}
+                aria-haspopup="true"
+                data-testid="navbarDropMenuButton"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={this.handleMenuIconClick}
+                data-testid="dropDownMenu"
+              >
+                {user && <MenuItem date-testId="addAccountMenu" onClick={this.handleAddAccountClick}>{I18n.get('addAccount')}</MenuItem>}
+                <MenuItem onClick={this.handleLoginButtonClick} data-testid="loginMenu">
+                  {user ? (
+                    <Fragment>
+                      <Avatar className={classes.avatar}><Typography color="inherit">{user.nickname.charAt(0)}</Typography></Avatar>
+                      <Typography color="textPrimary">{I18n.get('logout')}</Typography>
+                    </Fragment>
+                  ) : I18n.get('login')}
+                </MenuItem>
+              </Menu>
+            </Hidden>
+          </Toolbar>
+        </AppBar>
+        <AddAccountDialog open={isOpenAddAccountDialog} handleClose={this.handleAddAccountClick} />
+      </Fragment>
     );
   }
 }
