@@ -1,4 +1,5 @@
-export const BASE_URL = ''; // Production server
+import { FETCH_ALL_ACCOUNT_SUCCESS } from "./actions/ActionTypes";
+
 /* URLS */
 export const HOME_PAGE_URL = '/';
 export const TEST_PAGE_URL = '/test';
@@ -17,3 +18,7 @@ export const amplifyAuthSignOption = {
     hiddenDefaults: ['phone_number', 'email', 'username', 'password'],
   },
 };
+
+// API url config
+const BASE_URL = 'http://localhost:8080/api/v1/';
+export const FETCH_ALL_ACCOUNT_API = `${BASE_URL}fetchAllAccount`;
