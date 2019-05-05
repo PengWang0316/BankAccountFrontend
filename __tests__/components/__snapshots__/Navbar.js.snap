@@ -24,6 +24,12 @@ exports[`Navbar NavBar snapshot with user 1`] = `
     >
       <Button
         color="inherit"
+        data-testId="addAccountButton"
+      >
+        addAccount
+      </Button>
+      <Button
+        color="inherit"
         data-testid="loginButton"
         onClick={[Function]}
       >
@@ -70,6 +76,11 @@ exports[`Navbar NavBar snapshot with user 1`] = `
         onClose={[Function]}
         open={false}
       >
+        <MenuItem
+          date-testId="addAccountMenu"
+        >
+          addAccount
+        </MenuItem>
         <MenuItem
           data-testid="loginMenu"
           onClick={[Function]}
