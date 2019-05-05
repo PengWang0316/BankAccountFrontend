@@ -98,7 +98,7 @@ export class Navbar extends Component {
             <Typography variant="h6" color="inherit">{I18n.get('appName')}</Typography>
           </Link>
           <Hidden only="xs">
-            {user && <Button color="inherit" data-testId="addAccountButton">{I18n.get('addAccount')}</Button>}
+            {user && <Button color="inherit" data-testid="addAccountButton">{I18n.get('addAccount')}</Button>}
             <Button color="inherit" onClick={this.handleLoginButtonClick} data-testid="loginButton">
               {user ? (
                 <Fragment>

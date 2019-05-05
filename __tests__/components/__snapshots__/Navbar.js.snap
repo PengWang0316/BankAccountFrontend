@@ -24,7 +24,7 @@ exports[`Navbar NavBar snapshot with user 1`] = `
     >
       <Button
         color="inherit"
-        data-testId="addAccountButton"
+        data-testid="addAccountButton"
       >
         addAccount
       </Button>
