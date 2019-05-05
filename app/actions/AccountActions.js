@@ -16,5 +16,5 @@ const addAccountSuccess = account => ({
 export const fetchAllAccount = () => dispatch => axios.get(FETCH_ALL_ACCOUNT_API)
   .then(({ data }) => dispatch(fetchAllAccountSuccess(data)));
 
-export const addAccount = account => dispatch => axios.post(ADD_ACCOUNT_API, { account })
+export const addAccount = account => dispatch => axios.post(ADD_ACCOUNT_API, { ...account })
   .then(({ data }) => dispatch(addAccountSuccess(data)));

@@ -30,7 +30,7 @@ describe('AccountActions', () => {
     const newAccount = { content: 'content' };
     const returnAccount = { id3: { accountId: 'id3', ...newAccount } };
 
-    axiosMock.onPost(ADD_ACCOUNT_API, { account: newAccount }).reply(200, returnAccount);
+    axiosMock.onPost(ADD_ACCOUNT_API, { ...newAccount }).reply(200, returnAccount);
     const expectedActions = [{ type: ADD_ACCOUNT_SUCCESS, account: returnAccount }];
 
     const store = mockStore(accounts);

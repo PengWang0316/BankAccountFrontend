@@ -5,8 +5,7 @@ const Accounts = (state = null, { type, accounts, account }) => {
     case FETCH_ALL_ACCOUNT_SUCCESS:
       return accounts;
     case ADD_ACCOUNT_SUCCESS:
-      console.warn(account);
-      return { ...state, ...account };
+      return { ...state, [account.accountId]: account };
     default:
       return state;
   }
