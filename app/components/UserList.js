@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,8 +10,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-
 import I18n from '@kevinwang0316/i18n';
+
+import { fetchAllAccount as fetchAllAccountsAction } from '../actions/AccountActions';
 
 const styles = theme => ({
   root: {
@@ -26,8 +28,10 @@ const styles = theme => ({
   },
 });
 
-const UserList = ({ classes, rows }) => {
-  rows = [{ accountId: '123', name: 'test name', balance: 1223 }];
+const UserList = ({ classes, accounts, fetchAllAccount }) => {
+  useEffect(() => {
+    if (!accounts) fetchAllAccount();
+  });
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -40,13 +44,13 @@ const UserList = ({ classes, rows }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows && rows.map(row => (
-            <TableRow key={row.accountId} id={row.accountId}>
-              <TableCell>{row.accountId}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>${row.balance}</TableCell>
+          {accounts && Object.keys(accounts).map(key => (
+            <TableRow key={key} id={key}>
+              <TableCell>{accounts[key].accountId}</TableCell>
+              <TableCell>{accounts[key].name}</TableCell>
+              <TableCell>${accounts[key].balance}</TableCell>
               <TableCell align="right">
-                <Button size="small" color="primary">Deposit</Button><Button size="small" color="secondary">Withdraw</Button>
+                <Button size="small" color="primary">{I18n.get('deposit')}</Button><Button size="small" color="secondary">{I18n.get('withdraw')}</Button>
               </TableCell>
             </TableRow>
           ))}
@@ -56,8 +60,12 @@ const UserList = ({ classes, rows }) => {
   );
 };
 UserList.propTypes = {
+  accounts: PropTypes.object,
+  fetchAllAccount: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
-  rows: PropTypes.object,
 };
-UserList.defaultProps = { rows: null };
-export default withStyles(styles)(UserList);
+UserList.defaultProps = { accounts: null };
+
+const mapStateToProps = ({ accounts }) => ({ accounts });
+const mapDispatchToProps = { fetchAllAccount: fetchAllAccountsAction };
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UserList));
