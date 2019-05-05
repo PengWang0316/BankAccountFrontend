@@ -20,5 +20,5 @@ export const amplifyAuthSignOption = {
 };
 
 // API url config
-const BASE_URL = 'http://localhost:8080/api/v1/';
+const BASE_URL = 'http://localhost:8081/api/v1/';
 export const FETCH_ALL_ACCOUNT_API = `${BASE_URL}fetchAllAccount`;
