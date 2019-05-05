@@ -20,7 +20,7 @@ describe('AccountActions', () => {
     const expectedActions = [{ type: FETCH_ALL_ACCOUNT_SUCCESS, accounts }];
 
     const store = mockStore();
-    await store.dispatch(AccountActions.fetchAllAcount());
+    await store.dispatch(AccountActions.fetchAllAccount());
 
     expect(store.getActions()).toEqual(expectedActions);
   });
