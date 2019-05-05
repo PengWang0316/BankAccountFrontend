@@ -1,5 +1,3 @@
-import { FETCH_ALL_ACCOUNT_SUCCESS } from "./actions/ActionTypes";
-
 /* URLS */
 export const HOME_PAGE_URL = '/';
 export const TEST_PAGE_URL = '/test';
@@ -21,4 +19,5 @@ export const amplifyAuthSignOption = {
 
 // API url config
 const BASE_URL = 'http://localhost:8081/api/v1/';
-export const FETCH_ALL_ACCOUNT_API = `${BASE_URL}fetchAllAccount`;
+export const FETCH_ALL_ACCOUNT_API = `${BASE_URL}Accounts`;
+export const ADD_ACCOUNT_API = `${BASE_URL}Account`;
