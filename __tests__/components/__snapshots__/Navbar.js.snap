@@ -22,23 +22,6 @@ exports[`Navbar NavBar snapshot with user 1`] = `
     <Hidden
       only="xs"
     >
-      <Link
-        className="link"
-        to="/test"
-      >
-        <Button
-          color="inherit"
-          data-testid="testButton"
-        >
-          message
-        </Button>
-      </Link>
-      <Button
-        color="inherit"
-        data-testid="otherButton"
-      >
-        other
-      </Button>
       <Button
         color="inherit"
         data-testid="loginButton"
@@ -87,26 +70,6 @@ exports[`Navbar NavBar snapshot with user 1`] = `
         onClose={[Function]}
         open={false}
       >
-        <MenuItem>
-          <Link
-            className="menuLink"
-            data-testid="testLink"
-            to="/test"
-          >
-            <Typography
-              color="textPrimary"
-            >
-              message
-            </Typography>
-          </Link>
-        </MenuItem>
-        <MenuItem>
-          <Typography
-            color="textPrimary"
-          >
-            other
-          </Typography>
-        </MenuItem>
         <MenuItem
           data-testid="loginMenu"
           onClick={[Function]}
@@ -154,23 +117,6 @@ exports[`Navbar NavBar snapshot without user 1`] = `
     <Hidden
       only="xs"
     >
-      <Link
-        className="link"
-        to="/test"
-      >
-        <Button
-          color="inherit"
-          data-testid="testButton"
-        >
-          message
-        </Button>
-      </Link>
-      <Button
-        color="inherit"
-        data-testid="otherButton"
-      >
-        other
-      </Button>
       <Button
         color="inherit"
         data-testid="loginButton"
@@ -206,26 +152,6 @@ exports[`Navbar NavBar snapshot without user 1`] = `
         onClose={[Function]}
         open={false}
       >
-        <MenuItem>
-          <Link
-            className="menuLink"
-            data-testid="testLink"
-            to="/test"
-          >
-            <Typography
-              color="textPrimary"
-            >
-              message
-            </Typography>
-          </Link>
-        </MenuItem>
-        <MenuItem>
-          <Typography
-            color="textPrimary"
-          >
-            other
-          </Typography>
-        </MenuItem>
         <MenuItem
           data-testid="loginMenu"
           onClick={[Function]}

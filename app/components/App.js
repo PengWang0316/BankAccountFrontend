@@ -9,7 +9,7 @@ import { withAuthenticator } from 'aws-amplify-react';
 
 import Navbar from './Navbar';
 import {
-  HOME_PAGE_URL, TEST_PAGE_URL, SIGNIN_PAGE_URL, cognitoConfig, amplifyAuthSignOption,
+  HOME_PAGE_URL, SIGNIN_PAGE_URL, cognitoConfig, amplifyAuthSignOption,
 } from '../config';
 import LoadingAnimation from './SharedComponents/LoadingAnimation';
 
@@ -39,7 +39,6 @@ const theme = createMuiTheme({
 
 /* istanbul ignore next */
 const HomePage = importedComponent(() => import(/* webpackChunkName: "HomePageContainer" *//* webpackPrefetch: true */ './containers/HomePageContainer').catch(err => console.log(err)), { LoadingComponent: LoadingAnimation });
-// const AccountPage = importedComponent(() => import(/* webpackChunkName: "AccountPageContainer" *//* webpackPrefetch: true */ './containers/AccountPageContainer').catch(err => console.log(err)), { LoadingComponent: LoadingAnimation });
 
 /**
  * The root component that contains the theme, routers, navbar, and login dialog
@@ -53,7 +52,6 @@ export default () => (
         <main>
           <Switch>
             <Route exact path={HOME_PAGE_URL} component={HomePage} />
-            {/* <Route exact path={TEST_PAGE_URL} component={AccountPage} /> */}
             <Route exact path={SIGNIN_PAGE_URL} component={withAuthenticator(HomePage, amplifyAuthSignOption)} />
             <Route render={() => <p>Not Fount!</p>} />
           </Switch>
