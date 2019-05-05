@@ -8,7 +8,7 @@ const fetchAllAccountSuccess = accounts => ({
   accounts,
 });
 
-export const fetchAllAcount = () => dispatch => axios.get(FETCH_ALL_ACCOUNT_API)
+export const fetchAllAccount = () => dispatch => axios.get(FETCH_ALL_ACCOUNT_API)
   .then(({ data }) => dispatch(fetchAllAccountSuccess(data)));
 
-export default fetchAllAcount;
+export default fetchAllAccount;
