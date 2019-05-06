@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddAccountDialog AddAccountDialog snapshot 1`] = `
+<Dialog
+  aria-labelledby="form-dialog-title"
+  onClose={[MockFunction]}
+  open={false}
+>
+  <DialogTitle
+    id="form-dialog-title"
+  >
+    addAccountDialogTitle
+  </DialogTitle>
+  <DialogContent>
+    <TextField
+      autoFocus={true}
+      fullWidth={true}
+      id="name"
+      label="Name"
+      margin="dense"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <TextField
+      fullWidth={true}
+      id="balance"
+      label="Balance"
+      margin="dense"
+      onChange={[Function]}
+      type="number"
+      value={0}
+    />
+  </DialogContent>
+  <DialogActions>
+    <Button
+      color="primary"
+      onClick={[MockFunction]}
+    >
+      cancel
+    </Button>
+    <Button
+      color="primary"
+      onClick={[Function]}
+    >
+      add
+    </Button>
+  </DialogActions>
+</Dialog>
+`;
