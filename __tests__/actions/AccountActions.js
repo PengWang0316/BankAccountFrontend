@@ -4,8 +4,12 @@ import MockAdapter from 'axios-mock-adapter';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { FETCH_ALL_ACCOUNT_SUCCESS, ADD_ACCOUNT_SUCCESS } from '../../app/actions/ActionTypes';
-import { FETCH_ALL_ACCOUNT_API, ADD_ACCOUNT_API } from '../../app/config';
+import {
+  FETCH_ALL_ACCOUNT_SUCCESS, ADD_ACCOUNT_SUCCESS, DEPOSIT_SUCCESS, WITHDRAW_SUCCESS,
+} from '../../app/actions/ActionTypes';
+import {
+  FETCH_ALL_ACCOUNT_API, ADD_ACCOUNT_API, DEPOSIT_API, WITHDRAW_API,
+} from '../../app/config';
 
 import * as AccountActions from '../../app/actions/AccountActions';
 
@@ -35,6 +39,34 @@ describe('AccountActions', () => {
 
     const store = mockStore(accounts);
     await store.dispatch(AccountActions.addAccount(newAccount));
+
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  test('deposit', async () => {
+    const amount = 100.12;
+    const accountId = 'accountId';
+    const expectedActions = [
+      { type: DEPOSIT_SUCCESS, amount, accountId },
+    ];
+
+    axiosMock.onPut(DEPOSIT_API, { amount, accountId }).reply(200);
+    const store = mockStore();
+    await store.dispatch(AccountActions.deposit(amount, accountId));
+
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  test('withdraw', async () => {
+    const amount = 100.12;
+    const accountId = 'accountId';
+    const expectedActions = [
+      { type: WITHDRAW_SUCCESS, amount, accountId },
+    ];
+
+    axiosMock.onPut(WITHDRAW_API, { amount, accountId }).reply(200);
+    const store = mockStore();
+    await store.dispatch(AccountActions.withdraw(amount, accountId));
 
     expect(store.getActions()).toEqual(expectedActions);
   });

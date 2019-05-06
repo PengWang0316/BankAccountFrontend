@@ -21,4 +21,6 @@ export const amplifyAuthSignOption = {
 const BASE_URL = 'http://localhost:8081/api/v1/';
 export const FETCH_ALL_ACCOUNT_API = `${BASE_URL}accounts`;
 export const ADD_ACCOUNT_API = `${BASE_URL}account`;
+export const DEPOSIT_API = `${BASE_URL}account/deposit`;
+export const WITHDRAW_API = `${BASE_URL}account/withdraw`;
 export const FETCH_ALL_TRANSACTION_API = `${BASE_URL}transactions`;
