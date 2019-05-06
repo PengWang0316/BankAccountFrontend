@@ -1,26 +1,27 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Typography } from '@material-ui/core';
-import I18n from '@kevinwang0316/i18n';
 import PropTypes from 'prop-types';
 import { withAuthenticator } from 'aws-amplify-react';
 
 import { amplifyAuthSignOption } from '../../config';
 import { currentAuthenticatedUser as currentAuthenticatedUserAction } from '../../actions/UserActions';
+import UserList from '../UserList';
 
-const HomePage = ({ user, currentAuthenticatedUser }) => {
+export const HomePageContainer = ({ user, currentAuthenticatedUser }) => {
   useEffect(() => {
     if (!user) currentAuthenticatedUser();
   });
 
-  return <Typography color="textPrimary" variant="h6">{I18n.get('homePageContent')}</Typography>;
+  return (
+    <UserList />
+  );
 };
 
-HomePage.propTypes = {
-  user: PropTypes.object,
+HomePageContainer.propTypes = {
+  user: PropTypes.objectOf(PropTypes.string),
   currentAuthenticatedUser: PropTypes.func.isRequired,
 };
-HomePage.defaultProps = { user: null };
+HomePageContainer.defaultProps = { user: null };
 
 /* istanbul ignore next */
 const mapStateToProps = state => ({ user: state.user });
@@ -28,8 +29,7 @@ const mapStateToProps = state => ({ user: state.user });
 const mapDispatchToProps = dispatch => ({
   currentAuthenticatedUser: user => dispatch(currentAuthenticatedUserAction(user)),
 });
-// export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
 export default withAuthenticator(
-  connect(mapStateToProps, mapDispatchToProps)(HomePage),
+  connect(mapStateToProps, mapDispatchToProps)(HomePageContainer),
   amplifyAuthSignOption,
 );

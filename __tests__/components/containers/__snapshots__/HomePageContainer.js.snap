@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePageContainer HomePageContainer with a user snapshot 1`] = `<UserList />`;
+
+exports[`HomePageContainer HomePageContainer without a user snapshot 1`] = `<UserList />`;
