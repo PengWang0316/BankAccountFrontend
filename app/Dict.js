@@ -8,6 +8,12 @@ const dict = {
     thName: 'Name',
     thBalance: 'Balance',
     thActions: 'Actions',
+    deposit: 'Deposit',
+    withdraw: 'Withdraw',
+    addAccount: 'Add Account',
+    addAccountDialogTitle: 'Add a new account',
+    cancel: 'Cancel',
+    add: 'Add',
   },
   zh: {
     login: '登录',
@@ -18,6 +24,12 @@ const dict = {
     thName: 'Name',
     thBalance: 'Balance',
     thActions: 'Actions',
+    deposit: 'Deposit',
+    withdraw: 'Withdraw',
+    addAccount: 'Add Account',
+    addAccountDialogTitle: 'Add a new account',
+    cancel: 'Cancel',
+    add: 'Add',
   },
 };
 
