@@ -45,6 +45,7 @@ describe('Navbar', () => {
   test('Initial state and componentDidMount', () => {
     const component = getShallowComponent();
     expect(component.state('anchorEl')).toBe(null);
+    expect(component.state('isOpenAddAccountDialog')).toBe(false);
     expect(defaultProps.currentAuthenticatedUser).toHaveBeenCalledTimes(1);
   });
 
@@ -69,6 +70,16 @@ describe('Navbar', () => {
     expect(defaultProps.logout).toHaveBeenCalledTimes(1);
     expect(defaultProps.history.push).toHaveBeenCalledTimes(2);
     expect(defaultProps.history.push).toHaveBeenLastCalledWith(HOME_PAGE_URL);
+  });
+
+  test('handleAddAccountClick', () => {
+    const component = getShallowComponent();
+    expect(component.state('isOpenAddAccountDialog')).toBe(false);
+
+    component.instance().handleAddAccountClick();
+    expect(component.state('isOpenAddAccountDialog')).toBe(true);
+    component.instance().handleAddAccountClick();
+    expect(component.state('isOpenAddAccountDialog')).toBe(false);
   });
 
   test('NavBar snapshot without user', () => expect(renderer.create(<Navbar {...defaultProps} />).toJSON()).toMatchSnapshot());
