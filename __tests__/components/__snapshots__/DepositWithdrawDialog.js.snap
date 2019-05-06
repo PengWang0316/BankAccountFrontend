@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DepositWithdrawDialog DepositWithdrawDialog with deposit snapshot 1`] = `
+<Dialog
+  aria-labelledby="form-dialog-title"
+  onClose={[MockFunction]}
+  open={false}
+>
+  <DialogTitle
+    id="form-dialog-title"
+  >
+    depositDialogTitle
+  </DialogTitle>
+  <DialogContent>
+    <p
+      className="MuiTypography-root-2 MuiDialogContentText-root-1 MuiTypography-subheading-9 MuiTypography-colorTextSecondary-35"
+    >
+      depositDialogText accountId
+    </p>
+    <TextField
+      autoFocus={true}
+      fullWidth={true}
+      id="amount"
+      label="thAmount"
+      margin="dense"
+      onChange={[Function]}
+      type="number"
+      value={0}
+    />
+  </DialogContent>
+  <DialogActions>
+    <Button
+      color="primary"
+      onClick={[MockFunction]}
+    >
+      cancel
+    </Button>
+    <Button
+      color="primary"
+      onClick={[Function]}
+    >
+      deposit
+    </Button>
+  </DialogActions>
+</Dialog>
+`;
+
+exports[`DepositWithdrawDialog DepositWithdrawDialog with withdraw snapshot 1`] = `
+<Dialog
+  aria-labelledby="form-dialog-title"
+  onClose={[MockFunction]}
+  open={false}
+>
+  <DialogTitle
+    id="form-dialog-title"
+  >
+    withdrawDialogTitle
+  </DialogTitle>
+  <DialogContent>
+    <p
+      className="MuiTypography-root-2 MuiDialogContentText-root-1 MuiTypography-subheading-9 MuiTypography-colorTextSecondary-35"
+    >
+      withdrawDialogText accountId
+    </p>
+    <TextField
+      autoFocus={true}
+      fullWidth={true}
+      id="amount"
+      label="thAmount"
+      margin="dense"
+      onChange={[Function]}
+      type="number"
+      value={0}
+    />
+  </DialogContent>
+  <DialogActions>
+    <Button
+      color="primary"
+      onClick={[MockFunction]}
+    >
+      cancel
+    </Button>
+    <Button
+      color="primary"
+      onClick={[Function]}
+    >
+      withdraw
+    </Button>
+  </DialogActions>
+</Dialog>
+`;
