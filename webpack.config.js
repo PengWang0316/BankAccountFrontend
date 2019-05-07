@@ -45,7 +45,7 @@ const config = {
   devServer: {
     historyApiFallback: true,
     hot: true,
-    https: true,
+    // https: true,
   },
   optimization: {
     splitChunks: {
