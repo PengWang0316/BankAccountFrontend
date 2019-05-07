@@ -20,7 +20,7 @@ jest.mock('../../app/actions/TransactionActions', () => ({ fetchAllTransaction: 
 describe('UserList', () => {
   const defaultProps = {
     classes: { root: 'root', table: 'table', row: 'row' },
-    accounts: { id1: { accountid: 'id1', name: 'name1', balance: 100 }, id2: { accountid: 'id2', name: 'name2', balance: 130 } },
+    accounts: { id1: { accountId: 'id1', name: 'name1', balance: 100 }, id2: { accountId: 'id2', name: 'name2', balance: 130 } },
     fetchAllAccount: jest.fn(),
   };
   const getShallowComponent = (props = defaultProps) => shallow(<UserList {...props} />);

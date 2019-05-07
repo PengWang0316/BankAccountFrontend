@@ -32,7 +32,9 @@ Array [
           id="id1"
           onClick={[Function]}
         >
-          <TableCell />
+          <TableCell>
+            id1
+          </TableCell>
           <TableCell>
             name1
           </TableCell>
@@ -64,7 +66,9 @@ Array [
           id="id2"
           onClick={[Function]}
         >
-          <TableCell />
+          <TableCell>
+            id2
+          </TableCell>
           <TableCell>
             name2
           </TableCell>

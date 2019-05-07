@@ -86,7 +86,7 @@ export const UserList = ({ classes, accounts, fetchAllAccount }) => {
           </TableHead>
           <TableBody>
             {accounts && Object.keys(accounts).map(key => (
-              <TableRow key={key} id={key} onClick={handleRowClick} className={classes.row}>
+              <TableRow key={key} id={accounts[key].accountId} onClick={handleRowClick} className={classes.row}>
                 <TableCell>{accounts[key].accountId}</TableCell>
                 <TableCell>{accounts[key].name}</TableCell>
                 <TableCell>${accounts[key].balance}</TableCell>
