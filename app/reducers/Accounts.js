@@ -16,12 +16,12 @@ const Accounts = (
       return { ...state, [account.accountId]: account };
     case DEPOSIT_SUCCESS: {
       const newState = { ...state };
-      newState[accountId].amount += amount;
+      newState[accountId].balance = (newState[accountId].balance * 100 + amount * 100) / 100;
       return newState;
     }
     case WITHDRAW_SUCCESS: {
       const newState = { ...state };
-      newState[accountId].amount -= amount;
+      newState[accountId].balance = (newState[accountId].balance * 100 - amount * 100) / 100;
       return newState;
     }
     default:
