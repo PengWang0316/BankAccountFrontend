@@ -18,6 +18,7 @@ export const amplifyAuthSignOption = {
 };
 
 // API url config
+// const BASE_URL = 'http://ec2-3-84-252-131.compute-1.amazonaws.com:3000/api/v1/';
 const BASE_URL = 'http://localhost:3000/api/v1/';
 export const FETCH_ALL_ACCOUNT_API = `${BASE_URL}accounts`;
 export const ADD_ACCOUNT_API = `${BASE_URL}account`;
