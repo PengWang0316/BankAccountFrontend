@@ -17,6 +17,8 @@ const axiosMock = new MockAdapter(axios);
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
+jest.mock('uuid/v1', () => jest.fn().mockReturnValue('newId'));
+
 describe('AccountActions', () => {
   test('fetchAllAccount', async () => {
     const accounts = { id1: {}, id2: { accountId: 'id2' } };
@@ -32,9 +34,9 @@ describe('AccountActions', () => {
   test('addAccount', async () => {
     const accounts = { id1: {}, id2: { accountId: 'id2' } };
     const newAccount = { content: 'content' };
-    const returnAccount = { id3: { accountId: 'id3', ...newAccount } };
+    const returnAccount = { accountId: 'newId', ...newAccount };
 
-    axiosMock.onPost(ADD_ACCOUNT_API, { ...newAccount }).reply(200, returnAccount);
+    axiosMock.onPost(ADD_ACCOUNT_API, { ...newAccount }).reply(200);
     const expectedActions = [{ type: ADD_ACCOUNT_SUCCESS, account: returnAccount }];
 
     const store = mockStore(accounts);

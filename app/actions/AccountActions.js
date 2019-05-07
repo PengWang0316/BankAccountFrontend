@@ -1,4 +1,5 @@
 import axios from 'axios';
+import uuidv1 from 'uuid/v1';
 
 import {
   FETCH_ALL_ACCOUNT_SUCCESS, ADD_ACCOUNT_SUCCESS, DEPOSIT_SUCCESS, WITHDRAW_SUCCESS,
@@ -32,8 +33,11 @@ const withdrawSuccess = (amount, accountId) => ({
 export const fetchAllAccount = () => dispatch => axios.get(FETCH_ALL_ACCOUNT_API)
   .then(({ data }) => dispatch(fetchAllAccountSuccess(data)));
 
-export const addAccount = account => dispatch => axios.post(ADD_ACCOUNT_API, { ...account })
-  .then(({ data }) => dispatch(addAccountSuccess(data)));
+export const addAccount = account => (dispatch) => {
+  const accountInfo = { ...account, accountId: uuidv1() };
+  axios.post(ADD_ACCOUNT_API, accountInfo);
+  dispatch(addAccountSuccess(accountInfo));
+};
 
 export const deposit = (amount, accountId) => (dispatch) => {
   dispatch(depositSuccess(amount, accountId));
